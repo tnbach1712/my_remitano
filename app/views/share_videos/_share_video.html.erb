@@ -1,0 +1,22 @@
+<div id="<%= dom_id share_video %>" class="flex flex-wrap gap-4 pb-2 border-b">
+  <div class="flex-initial h-64 w-62">
+  <iframe width="auto" height="100%"
+    src="https://www.youtube.com/embed/tgbNymZ7vqY">
+    </iframe>
+  </div>
+  <div class="flex-1">
+    <h3 class="font-mono font-black text-red-500"> <%= share_video.title %> Lorem </h3>
+
+    <p>
+      <strong>Description:</strong>
+      <%= share_video.description %>
+    </p>
+
+    <p>
+      <strong>Share by: </strong>
+      <%= share_video&.user&.email %>
+    </p>
+  </div>
+
+
+</div>

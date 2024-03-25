@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @share_video %>
+
+<div>
+  <%= link_to "Edit this share video", edit_share_video_path(@share_video) %> |
+  <%= link_to "Back to share videos", share_videos_path %>
+
+  <%= button_to "Destroy this share video", @share_video, method: :delete %>
+</div>

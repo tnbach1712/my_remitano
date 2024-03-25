@@ -1,0 +1,15 @@
+<div class="my-10 mx-5">
+<p style="color: green"><%= notice %></p>
+
+<h1 class="mx-auto font-mono font-black text-2xl my-10">Share videos</h1>
+
+<%= link_to "New share video", new_share_video_path, class: "block mb-5" %>
+
+<div id="share_videos">
+  <% @share_videos.each do |share_video| %>
+    <%= render share_video %>
+  <% end %>
+</div>
+
+
+</div>
