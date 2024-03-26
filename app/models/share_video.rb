@@ -12,7 +12,7 @@ class ShareVideo < ApplicationRecord
   end
 
   def broadcast_notification
-    ActionCable.server.broadcast('share_video_notifications_channel', { type: 'new_share_video', title: self.title, message: 'New video created!' })
+    ActionCable.server.broadcast('share_video_notifications_channel', { type: :new_share_video, metadata: self.as_json, message: 'New video shared!' })
   end
 
 end

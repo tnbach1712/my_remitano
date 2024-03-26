@@ -13,7 +13,8 @@ consumer.subscriptions.create("ShareVideoNotificationsChannel", {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-    alert(`New notification: ${data.message}`);
+    console.log(data)
+    // alert(`New notification: ${data.message}`);
     // You can replace this with any code to update your UI
   }
 });
