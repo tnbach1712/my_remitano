@@ -1,26 +1,27 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<body class="antialiased bg-gray-200 text-gray-900 font-sans">
+  <div class="flex items-center w-full">
+    <div class="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
+      <span class="block w-full text-xl uppercase font-bold mb-4">Login</span>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), class: "mb-4") do |f| %>
+        <div class="mb-4 md:w-full">
+          <%= f.label :email, class: "block text-xs mb-1" %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-full border rounded p-2 outline-none focus:shadow-outline", placeholder: "Username or Email" %>
+        </div>
+        <div class="mb-6 md:w-full">
+          <%= f.label :password, class: "block text-xs mb-1" %>
+          <%= f.password_field :password, class: "w-full border rounded p-2 outline-none focus:shadow-outline" %>
+        </div>
+        <% if devise_mapping.rememberable? %>
+          <div class="mb-6 md:w-full flex gap-4">
+            <%= f.check_box :remember_me, class: " border rounded p-2 outline-none focus:shadow-outline" %>
+            <%= f.label :remember_me, class: "block text-xs" %>
+          </div>
+        <% end %>
+        <button
+          class="bg-green-500 hover:bg-green-700 text-white uppercase text-sm font-semibold px-4 py-2 rounded">Login</button>
+      <% end %>
+      <%= render "users/shared/links" %>
+      
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</body>
