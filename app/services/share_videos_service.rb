@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ShareVideosService
   include HTTParty
   base_uri 'https://www.googleapis.com/youtube/v3'
