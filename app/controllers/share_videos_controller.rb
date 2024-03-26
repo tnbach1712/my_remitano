@@ -4,7 +4,7 @@ class ShareVideosController < ApplicationController
 
   # GET /share_videos or /share_videos.json
   def index
-    @share_videos = ShareVideo.all
+    @share_videos = ShareVideo.includes(:user).all
   end
 
   # GET /share_videos/1 or /share_videos/1.json
@@ -26,7 +26,7 @@ class ShareVideosController < ApplicationController
 
     respond_to do |format|
       if @share_video.save
-        format.html { redirect_to share_video_url(@share_video), notice: "Share video was successfully created." }
+        format.html { redirect_to share_videos_url(), notice: "Share video was successfully created." }
         format.json { render :show, status: :created, location: @share_video }
       else
         format.html { render :new, status: :unprocessable_entity }
