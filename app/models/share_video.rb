@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ShareVideo < ApplicationRecord
   belongs_to :user
 
@@ -6,6 +7,7 @@ class ShareVideo < ApplicationRecord
   after_create :broadcast_notification
 
   private
+
   def update_title_and_desc
     video_service = ShareVideosService.new self
     video_service.update_info
@@ -13,7 +15,7 @@ class ShareVideo < ApplicationRecord
   end
 
   def broadcast_notification
-    ActionCable.server.broadcast('share_video_notifications_channel', { type: :new_share_video, metadata: self.as_json, message: 'New video shared!' })
+    ActionCable.server.broadcast('share_video_notifications_channel',
+                                 { type: :new_share_video, metadata: as_json, message: 'New video shared!' })
   end
-
 end
