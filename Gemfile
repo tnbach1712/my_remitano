@@ -59,6 +59,7 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'dotenv-rails'
   gem 'web-console'
+  gem 'rspec-rails', '~> 4.0'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
