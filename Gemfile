@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -78,3 +79,7 @@ gem "cssbundling-rails", "~> 1.4"
 
 gem "httpparty", "~> 0.2.0"
 
+
+gem "rubocop", "~> 1.62"
+
+gem "rubocop-rails", "~> 2.24"
