@@ -5,6 +5,7 @@ if(getCookies("user_id") !== undefined && getCookies("user_id") !== '' ){
   consumer.subscriptions.create("ShareVideoNotificationsChannel", {
     connected() {
       // Called when the subscription is ready for use on the server
+      console.log('connected')
     },
   
     disconnected() {

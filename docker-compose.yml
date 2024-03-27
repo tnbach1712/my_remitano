@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14.2-alpine
+    container_name: myapp-postgres-14.2
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    command: ["postgres", "-c", "max_connections=500"]
+    environment:
+      POSTGRES_DB: remitano
+      POSTGRES_USER: bachtn
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bin/dev"
+    environment:
+      DB_HOST: db
+      DB_NAME: remitano
+      DB_USERNAME: bachtn
+      DB_PASSWORD: 123456
+      REDIS_URL: redis://redis:6379/0
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+      - redis
+
+volumes:
+  postgres_data:
