@@ -1,24 +1,34 @@
 # README
+## Introduce:
+  This is a project that uses Ruby on Rails 7. It includes functionalities for user registration, login, and authentication.
+  Users can share their favorite videos on YouTube. And it will notify other users when you share a new video.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Prerequisites:
+  - Docker
+  - Docker compose
+  - Ruby
+  - Database Postgre
+  - Redis
 
-* Ruby version
+## Installation & Configuration
+  ### Docker
+  ```
+  git clone <repo_url>
+  cd <repo>
 
-* System dependencies
+  # install and start
+  docker compose up
+  ```
 
-* Configuration
+  ### Without Docker
+  ```
+  git clone <repo_url>
+  cd <repo>
 
-* Database creation
+  rake db:create
+  rake db:migrate
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  # start developer mode
+  ./bin/dev
+  ```
