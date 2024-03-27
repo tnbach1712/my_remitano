@@ -6,6 +6,9 @@ class ShareVideo < ApplicationRecord
   before_create :update_title_and_desc
   after_create :broadcast_notification
 
+  validates_format_of :url, with: %r{\A(https?://)?(www\.)?(youtube\.com/watch\?v=|youtu\.be/)[\w-]{11}(&[\w=&]*)*\z},
+                            message: 'must be a valid YouTube URL'
+
   private
 
   def update_title_and_desc
