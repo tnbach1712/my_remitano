@@ -26,7 +26,10 @@
   git clone <repo_url>
   cd <repo>
 
+  # create database
   rake db:create
+
+  # Create table
   rake db:migrate
 
   # start developer mode
