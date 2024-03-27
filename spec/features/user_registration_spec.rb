@@ -34,6 +34,7 @@ RSpec.feature 'UserRegistrations', type: :feature do
     login_as(user, scope: :user)
 
     visit root_path
+    
     within('header') do
       first("a[href='#{destroy_user_session_path}']").click
     end
