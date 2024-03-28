@@ -34,4 +34,16 @@
 
   # start developer mode
   ./bin/dev
+
+  # command above will start  process:
+  # web: env RUBY_DEBUG_OPEN=true bin/rails server -b 0.0.0.0
+  # worker: bundle exec sidekiq -c 1
+  # js: yarn build --watch
+  # css: yarn build:css --watch
+
+  ```
+
+## Run test
+  ```
+  rspec
   ```
