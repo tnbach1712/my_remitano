@@ -80,3 +80,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
 end
+
+gem 'sidekiq', '~> 7.2'
