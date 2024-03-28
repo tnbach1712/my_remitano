@@ -10,12 +10,13 @@
   - Ruby
   - Database Postgre
   - Redis
+  - Node version > 18
 
 ## Installation & Configuration
   ### Docker
   ```
-  git clone <repo_url>
-  cd <repo>
+  git clone  https://github.com/tnbach1712/my_remitano
+  cd my_remitano
 
   # install and start
   docker compose up
@@ -23,8 +24,8 @@
 
   ### Without Docker
   ```
-  git clone <repo_url>
-  cd <repo>
+  git clone https://github.com/tnbach1712/my_remitano
+  cd my_remitano
 
   # create database
   rake db:create
@@ -38,6 +39,9 @@
   # command above will start  process:
   # web: env RUBY_DEBUG_OPEN=true bin/rails server -b 0.0.0.0
   # worker: bundle exec sidekiq -c 1
+
+  # To compile js and css
+
   # js: yarn build --watch
   # css: yarn build:css --watch
 
