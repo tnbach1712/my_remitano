@@ -7,6 +7,10 @@ RSpec.describe ShareVideo, type: :model do
   let(:user) { create(:user) } # Creates a user
   let(:share_video) { build(:share_video, user:) } # Builds a share_video associated with the user
 
+  describe 'associations' do
+    it { should belong_to(:user) }
+  end
+
   describe 'validations' do
     it 'is valid with a valid YouTube URL' do
       user = create(:user)
@@ -35,7 +39,7 @@ RSpec.describe ShareVideo, type: :model do
 
     it 'broadcasts a notification after create' do
       expect(ActionCable.server).to receive(:broadcast)
-        .with('share_video_notifications_channel', anything)
+      .with('share_video_notifications_channel', hash_including(:type, :metadata, :message))
       share_video.save!
     end
   end
